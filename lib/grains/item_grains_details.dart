@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class ItemHotDrinksDetails extends StatefulWidget {
-  ItemHotDrinksDetails({Key key}) : super(key: key);
+class ItemGrainsDetails extends StatefulWidget {
+  ItemGrainsDetails({Key key}) : super(key: key);
   @override
-  _ItemHotDrinksDetailsState createState() => _ItemHotDrinksDetailsState();
+  _ItemGrainsDetailsState createState() => _ItemGrainsDetailsState();
 }
 
-class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
+class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Detalle"),
+        title: Text("Detalle Grano"),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -96,7 +96,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                     child: Column(
                       children: [
                         Text("Precio"),
-                        Text("\$69805409"),
+                        Text("\$69"),
                       ],
                     ),
                   ),

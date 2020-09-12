@@ -1,3 +1,7 @@
+import 'package:estructura_practica_1/drinks/hot_drinks_page.dart';
+import 'package:estructura_practica_1/grains/grains_page.dart';
+import 'package:estructura_practica_1/models/product_hot_drinks.dart';
+import 'package:estructura_practica_1/models/product_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/home/item_home.dart';
 import 'package:estructura_practica_1/profile.dart';
@@ -41,13 +45,19 @@ class _HomeState extends State<Home> {
               image: "https://i.imgur.com/XJ0y9qs.png",
             ),
           ),
-          ItemHome(
-            title: "Granos",
-            image: "https://i.imgur.com/5MZocC1.png",
+          GestureDetector(
+            onTap: _openGrainsPage,
+            child: ItemHome(
+              title: "Granos",
+              image: "https://i.imgur.com/5MZocC1.png",
+            ),
           ),
-          ItemHome(
-            title: "Postres",
-            image: "https://i.imgur.com/fI7Tezv.png",
+          GestureDetector(
+            onTap: _openDessertPage,
+            child: ItemHome(
+              title: "Postres",
+              image: "https://i.imgur.com/fI7Tezv.png",
+            ),
           ),
           ItemHome(
             // TODO: Al hacer clic, que muestre un snackbar de "Proximamente"
@@ -65,7 +75,9 @@ class _HomeState extends State<Home> {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) {
-          return null;
+          return HotDrinksPage(
+            drinksList: ProductRepository.loadProducts(ProductType.BEBIDAS),
+          );
         },
       ),
     );
@@ -73,13 +85,28 @@ class _HomeState extends State<Home> {
 
   void _openGrainsPage() {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => null),
+      MaterialPageRoute(
+        builder: (context) {
+          return GrainsPage(
+            grainsList: ProductRepository.loadProducts(ProductType.GRANO),
+          );
+        },
+      ),
     );
   }
 
   void _openDessertPage() {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => null),
+      MaterialPageRoute(
+        builder: (context) {
+          // TODO Cambiar a DessertPage
+          return HotDrinksPage(
+            // TODO cambiar lista a Dessert
+            //drinksList: ProductRepository.loadProducts(ProductType.POSTRES),
+            drinksList: ProductRepository.loadProducts(ProductType.BEBIDAS),
+          );
+        },
+      ),
     );
   }
 }
