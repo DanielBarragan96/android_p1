@@ -26,13 +26,6 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                     Container(
                       color: Colors.orange,
                     ),
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: IconButton(
-                        icon: Icon(Icons.favorite),
-                        onPressed: () {},
-                      ),
-                    ),
                     Positioned(
                       top: 0,
                       bottom: 0,
@@ -44,7 +37,14 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                           size: 160,
                         ),
                       ),
-                    )
+                    ),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: IconButton(
+                        icon: Icon(Icons.favorite),
+                        onPressed: () {},
+                      ),
+                    ),
                   ],
                 ),
               ),
