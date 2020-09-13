@@ -81,9 +81,7 @@ class _ItemHotDrinksState extends State<ItemHotDrinks> {
               left: 0,
               child: Align(
                 alignment: Alignment.topRight,
-                child:
-                    // TODO cambiar color corazon
-                    IconButton(
+                child: IconButton(
                   icon: Icon(Icons.favorite),
                   color: fav ? Colors.red : Colors.black38,
                   onPressed: () {
