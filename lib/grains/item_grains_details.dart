@@ -160,5 +160,6 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
 
   void updateSize(ProductWeight newSize) {
     size = newSize;
+    selectedGrain.productPrice = selectedGrain.productPriceCalculator();
   }
 }
