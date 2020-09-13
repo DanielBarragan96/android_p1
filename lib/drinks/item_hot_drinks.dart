@@ -1,3 +1,4 @@
+import 'package:estructura_practica_1/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/models/product_hot_drinks.dart';
 
@@ -26,7 +27,7 @@ class _ItemHotDrinksState extends State<ItemHotDrinks> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey,
+        color: kDrakBrown,
         borderRadius: BorderRadius.all(Radius.circular(5)),
       ),
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),

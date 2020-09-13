@@ -1,6 +1,8 @@
 import 'package:estructura_practica_1/models/product_grains.dart';
 import 'package:flutter/material.dart';
 
+import '../colors.dart';
+
 class ItemGrains extends StatefulWidget {
   final ProductGrains grain;
   ItemGrains({
@@ -26,7 +28,7 @@ class _ItemGrainsState extends State<ItemGrains> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey,
+        color: kDrakBrown,
         borderRadius: BorderRadius.all(Radius.circular(5)),
       ),
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),

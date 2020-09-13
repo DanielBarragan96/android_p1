@@ -1,6 +1,8 @@
 import 'package:estructura_practica_1/models/product_dessert.dart';
 import 'package:flutter/material.dart';
 
+import '../colors.dart';
+
 class ItemDessert extends StatefulWidget {
   final ProductDessert dessert;
   ItemDessert({
@@ -26,7 +28,7 @@ class _ItemDessertState extends State<ItemDessert> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey,
+        color: kDrakBrown,
         borderRadius: BorderRadius.all(Radius.circular(5)),
       ),
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
