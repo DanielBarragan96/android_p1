@@ -1,8 +1,5 @@
-import 'package:estructura_practica_1/drinks/item_hot_drinks_details.dart';
 import 'package:estructura_practica_1/models/product_grains.dart';
 import 'package:flutter/material.dart';
-import 'package:estructura_practica_1/drinks/item_hot_drinks.dart';
-import 'package:estructura_practica_1/models/product_hot_drinks.dart';
 
 import 'item_grains.dart';
 import 'item_grains_details.dart';
@@ -27,7 +24,9 @@ class GrainsPage extends StatelessWidget {
             onTap: () {
               return Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => ItemGrainsDetails(),
+                  builder: (context) => ItemGrainsDetails(
+                    selectedGrain: grainsList[index],
+                  ),
                 ),
               );
             },

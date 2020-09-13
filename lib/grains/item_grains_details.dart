@@ -1,17 +1,30 @@
+import 'package:estructura_practica_1/models/product_grains.dart';
 import 'package:flutter/material.dart';
 
 class ItemGrainsDetails extends StatefulWidget {
-  ItemGrainsDetails({Key key}) : super(key: key);
+  final ProductGrains selectedGrain;
+  ItemGrainsDetails({Key key, @required this.selectedGrain}) : super(key: key);
   @override
   _ItemGrainsDetailsState createState() => _ItemGrainsDetailsState();
 }
 
 class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
+  ProductGrains selectedGrain;
+  bool fav;
+  ProductWeight size;
+  @override
+  void initState() {
+    selectedGrain = widget.selectedGrain;
+    fav = selectedGrain.liked;
+    size = selectedGrain.productWeight;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Detalle Grano"),
+        title: Text("Detalle"),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -33,8 +46,9 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                       right: 0,
                       child: Padding(
                         padding: const EdgeInsets.all(24.0),
-                        child: FlutterLogo(
-                          size: 160,
+                        child: Image.network(
+                          selectedGrain.productImage,
+                          fit: BoxFit.fill,
                         ),
                       ),
                     ),
@@ -42,7 +56,11 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                       alignment: Alignment.topRight,
                       child: IconButton(
                         icon: Icon(Icons.favorite),
-                        onPressed: () {},
+                        color: fav ? Colors.red : Colors.black38,
+                        onPressed: () {
+                          updateFav();
+                          setState(() {});
+                        },
                       ),
                     ),
                   ],
@@ -50,16 +68,9 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 28),
-                child: Text("Titulo del producto"),
+                child: Text("${selectedGrain.productTitle}"),
               ),
-              Text("Lorem ipsum dolor sit amet consectetur adipiscing elit,"
-                  "diam aliquet dui semper integer lacinia velit taciti, eget nisl hac "
-                  "suspendisse erat purus. Eu odio dignissim leo elementum phasellus "
-                  "libero accumsan, suspendisse facilisis consequat sociosqu nibh hac "
-                  "curabitur nulla, augue lectus bibendum tempus urna sociis. "
-                  "Pellentesque varius bibendum arcu imperdiet accumsan tempor "
-                  "a at vel sapien eleifend et duis, rhoncus eros sociis nullam "
-                  "molestie blandit netus ultrices morbi quam augue lacus."),
+              Text("${selectedGrain.productDescription}"),
               SizedBox(
                 height: 48,
               ),
@@ -68,25 +79,38 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                   Expanded(
                     child: Column(
                       children: [
-                        Text("Color"),
+                        Text("Tamaño"),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Container(
-                              height: 24,
-                              width: 24,
-                              color: Colors.blue,
+                            GestureDetector(
+                              onTap: () {
+                                updateSize(ProductWeight.CUARTO);
+                                setState(() {});
+                              },
+                              child: Container(
+                                height: 24,
+                                width: 50,
+                                color: (size == ProductWeight.CUARTO)
+                                    ? Colors.purple[200]
+                                    : Colors.white10,
+                                child: Center(child: Text("250 g")),
+                              ),
                             ),
-                            Container(
-                              height: 24,
-                              width: 24,
-                              color: Colors.blue,
+                            GestureDetector(
+                              onTap: () {
+                                updateSize(ProductWeight.KILO);
+                                setState(() {});
+                              },
+                              child: Container(
+                                height: 24,
+                                width: 50,
+                                color: (size == ProductWeight.KILO)
+                                    ? Colors.purple[200]
+                                    : Colors.white10,
+                                child: Center(child: Text("1 Kg")),
+                              ),
                             ),
-                            Container(
-                              height: 24,
-                              width: 24,
-                              color: Colors.blue,
-                            )
                           ],
                         )
                       ],
@@ -96,7 +120,7 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                     child: Column(
                       children: [
                         Text("Precio"),
-                        Text("\$69"),
+                        Text("\$${selectedGrain.productPrice}"),
                       ],
                     ),
                   ),
@@ -107,7 +131,7 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                   Expanded(
                     child: MaterialButton(
                       onPressed: () {},
-                      child: Text("Boton 1"),
+                      child: Text("AGREGAR AL CARRITO"),
                       color: Colors.yellow[200],
                     ),
                   ),
@@ -117,7 +141,7 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                   Expanded(
                     child: MaterialButton(
                       onPressed: () {},
-                      child: Text("Boton 2"),
+                      child: Text("COMPRAR AHORA"),
                       color: Colors.purple[200],
                     ),
                   ),
@@ -128,5 +152,13 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
         ),
       ),
     );
+  }
+
+  void updateFav() {
+    fav = fav ? false : true;
+  }
+
+  void updateSize(ProductWeight newSize) {
+    size = newSize;
   }
 }
