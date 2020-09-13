@@ -11,9 +11,13 @@ class ItemHotDrinksDetails extends StatefulWidget {
 
 class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
   ProductHotDrinks selectedDrink;
+  bool fav;
+  ProductSize size;
   @override
   void initState() {
     selectedDrink = widget.selectedDrink;
+    fav = selectedDrink.liked;
+    size = selectedDrink.productSize;
     super.initState();
   }
 
@@ -43,14 +47,21 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                       right: 0,
                       child: Padding(
                         padding: const EdgeInsets.all(24.0),
-                        child: Image.network(selectedDrink.productImage),
+                        child: Image.network(
+                          selectedDrink.productImage,
+                          fit: BoxFit.fill,
+                        ),
                       ),
                     ),
                     Align(
                       alignment: Alignment.topRight,
                       child: IconButton(
                         icon: Icon(Icons.favorite),
-                        onPressed: () {},
+                        color: fav ? Colors.red : Colors.black38,
+                        onPressed: () {
+                          updateFav();
+                          setState(() {});
+                        },
                       ),
                     ),
                   ],
@@ -69,24 +80,51 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                   Expanded(
                     child: Column(
                       children: [
-                        Text("Color"),
+                        Text("Tamaño"),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Container(
-                              height: 24,
-                              width: 24,
-                              color: Colors.blue,
+                            GestureDetector(
+                              onTap: () {
+                                updateSize(ProductSize.CH);
+                                setState(() {});
+                              },
+                              child: Container(
+                                height: 24,
+                                width: 24,
+                                color: (size == ProductSize.CH)
+                                    ? Colors.purple[200]
+                                    : Colors.white10,
+                                child: Center(child: Text("CH")),
+                              ),
                             ),
-                            Container(
-                              height: 24,
-                              width: 24,
-                              color: Colors.blue,
+                            GestureDetector(
+                              onTap: () {
+                                updateSize(ProductSize.M);
+                                setState(() {});
+                              },
+                              child: Container(
+                                height: 24,
+                                width: 24,
+                                color: (size == ProductSize.M)
+                                    ? Colors.purple[200]
+                                    : Colors.white10,
+                                child: Center(child: Text("M")),
+                              ),
                             ),
-                            Container(
-                              height: 24,
-                              width: 24,
-                              color: Colors.blue,
+                            GestureDetector(
+                              onTap: () {
+                                updateSize(ProductSize.G);
+                                setState(() {});
+                              },
+                              child: Container(
+                                height: 24,
+                                width: 24,
+                                color: (size == ProductSize.G)
+                                    ? Colors.purple[200]
+                                    : Colors.white10,
+                                child: Center(child: Text("G")),
+                              ),
                             )
                           ],
                         )
@@ -129,5 +167,13 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
         ),
       ),
     );
+  }
+
+  void updateFav() {
+    fav = fav ? false : true;
+  }
+
+  void updateSize(ProductSize newSize) {
+    size = newSize;
   }
 }

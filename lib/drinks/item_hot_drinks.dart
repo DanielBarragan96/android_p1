@@ -14,9 +14,11 @@ class ItemHotDrinks extends StatefulWidget {
 
 class _ItemHotDrinksState extends State<ItemHotDrinks> {
   ProductHotDrinks drink;
+  bool fav;
   @override
   void initState() {
     drink = widget.drink;
+    fav = drink.liked;
     super.initState();
   }
 
@@ -78,14 +80,26 @@ class _ItemHotDrinksState extends State<ItemHotDrinks> {
               right: 5,
               left: 0,
               child: Align(
-                  alignment: Alignment.topRight,
-                  child:
-                      // TODO cambiar color corazon
-                      IconButton(icon: Icon(Icons.favorite), onPressed: () {})),
+                alignment: Alignment.topRight,
+                child:
+                    // TODO cambiar color corazon
+                    IconButton(
+                  icon: Icon(Icons.favorite),
+                  color: fav ? Colors.red : Colors.black38,
+                  onPressed: () {
+                    updateFav();
+                    setState(() {});
+                  },
+                ),
+              ),
             ),
           ],
         ),
       ),
     );
+  }
+
+  void updateFav() {
+    fav = fav ? false : true;
   }
 }
