@@ -28,6 +28,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Detalle"),
+        backgroundColor: kDarkBlue,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -98,8 +99,9 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                                 setState(() {});
                               },
                               child: Container(
-                                height: 50,
+                                height: 30,
                                 width: 50,
+                                margin: EdgeInsets.only(top: 10, bottom: 10),
                                 color: (size == ProductSize.CH)
                                     ? Colors.purple[200]
                                     : Colors.white10,
@@ -112,7 +114,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                                 setState(() {});
                               },
                               child: Container(
-                                height: 50,
+                                height: 30,
                                 width: 50,
                                 color: (size == ProductSize.M)
                                     ? Colors.purple[200]
@@ -126,7 +128,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                                 setState(() {});
                               },
                               child: Container(
-                                height: 50,
+                                height: 30,
                                 width: 50,
                                 color: (size == ProductSize.G)
                                     ? Colors.purple[200]
@@ -143,7 +145,15 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                     child: Column(
                       children: [
                         Text("Precio"),
-                        Text("\$${selectedDrink.productPrice}"),
+                        Container(
+                          height: 50,
+                          width: 50,
+                          child: Center(
+                            child: Text(
+                              "\$${selectedDrink.productPrice}",
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),

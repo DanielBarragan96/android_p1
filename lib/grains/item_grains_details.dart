@@ -27,6 +27,7 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Detalle"),
+        backgroundColor: kDarkBlue,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -97,8 +98,9 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                                 setState(() {});
                               },
                               child: Container(
-                                height: 50,
+                                height: 30,
                                 width: 50,
+                                margin: EdgeInsets.only(top: 10, bottom: 10),
                                 color: (size == ProductWeight.CUARTO)
                                     ? Colors.purple[200]
                                     : Colors.white10,
@@ -111,7 +113,7 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                                 setState(() {});
                               },
                               child: Container(
-                                height: 50,
+                                height: 30,
                                 width: 50,
                                 color: (size == ProductWeight.KILO)
                                     ? Colors.purple[200]
@@ -128,7 +130,15 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                     child: Column(
                       children: [
                         Text("Precio"),
-                        Text("\$${selectedGrain.productPrice}"),
+                        Container(
+                          height: 50,
+                          width: 50,
+                          child: Center(
+                            child: Text(
+                              "\$${selectedGrain.productPrice}",
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),

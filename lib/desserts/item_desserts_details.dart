@@ -28,6 +28,7 @@ class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Detalle"),
+        backgroundColor: kDarkBlue,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -88,7 +89,7 @@ class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
                   Expanded(
                     child: Column(
                       children: [
-                        Text("Porción"),
+                        Text("Tamaño"),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -98,7 +99,7 @@ class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
                                 setState(() {});
                               },
                               child: Container(
-                                height: 50,
+                                height: 30,
                                 width: 50,
                                 color: (size == ProductSlice.HALF)
                                     ? Colors.purple[200]
@@ -112,8 +113,9 @@ class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
                                 setState(() {});
                               },
                               child: Container(
-                                height: 50,
+                                height: 30,
                                 width: 50,
+                                margin: EdgeInsets.only(top: 10, bottom: 10),
                                 color: (size == ProductSlice.SINGLE)
                                     ? Colors.purple[200]
                                     : Colors.white10,
@@ -126,7 +128,7 @@ class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
                                 setState(() {});
                               },
                               child: Container(
-                                height: 50,
+                                height: 30,
                                 width: 50,
                                 color: (size == ProductSlice.DOUBLE)
                                     ? Colors.purple[200]
@@ -143,7 +145,15 @@ class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
                     child: Column(
                       children: [
                         Text("Precio"),
-                        Text("\$${selectedDessert.productPrice}"),
+                        Container(
+                          height: 50,
+                          width: 50,
+                          child: Center(
+                            child: Text(
+                              "\$${selectedDessert.productPrice}",
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
