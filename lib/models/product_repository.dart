@@ -14,7 +14,6 @@ class ProductRepository {
     // ----------------------       Postres      ----------------------//
     // ----------------------              ----------------------------//
     if (prodType == ProductType.POSTRES) {
-      // TODO: Agregar al menos 5 productos "postres"
       return <ProductDessert>[
         ProductDessert(
           productTitle: "Brownie",

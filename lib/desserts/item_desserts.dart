@@ -1,6 +1,5 @@
 import 'package:estructura_practica_1/models/product_dessert.dart';
 import 'package:flutter/material.dart';
-import 'package:estructura_practica_1/models/product_hot_drinks.dart';
 
 class ItemDessert extends StatefulWidget {
   final ProductDessert dessert;
