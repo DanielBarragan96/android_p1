@@ -1,3 +1,4 @@
+import 'package:estructura_practica_1/colors.dart';
 import 'package:estructura_practica_1/models/product_grains.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,7 @@ class GrainsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kDarkBlue,
         title: Text("Granos"),
       ),
       body: ListView.builder(

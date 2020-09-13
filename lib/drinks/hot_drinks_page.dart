@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/drinks/item_hot_drinks.dart';
 import 'package:estructura_practica_1/models/product_hot_drinks.dart';
 
+import '../colors.dart';
+
 class HotDrinksPage extends StatelessWidget {
   final List<ProductHotDrinks> drinksList;
   HotDrinksPage({
@@ -14,6 +16,7 @@ class HotDrinksPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kDarkBlue,
         title: Text("Bebidas"),
       ),
       body: ListView.builder(

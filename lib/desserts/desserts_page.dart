@@ -1,6 +1,7 @@
 import 'package:estructura_practica_1/models/product_dessert.dart';
 import 'package:flutter/material.dart';
 
+import '../colors.dart';
 import 'item_desserts.dart';
 import 'item_desserts_details.dart';
 
@@ -15,6 +16,7 @@ class DessertsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kDarkBlue,
         title: Text("Postres"),
       ),
       body: ListView.builder(
