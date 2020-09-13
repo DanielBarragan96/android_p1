@@ -1,3 +1,4 @@
+import 'package:estructura_practica_1/models/product_dessert.dart';
 import 'package:estructura_practica_1/models/product_hot_drinks.dart';
 import 'package:estructura_practica_1/models/product_grains.dart';
 
@@ -6,15 +7,65 @@ enum ProductType { BEBIDAS, GRANO, POSTRES }
 class ProductRepository {
   static List<dynamic> loadProducts(ProductType prodType) {
     // ----------------------              ----------------------------//
-    // ----------------------       Tazas      ----------------------------//
+    // ----------------------       Tazas      ------------------------//
     // ----------------------              ----------------------------//
 
-    //if (prodType == ProductType.POSTRES) {
-    // TODO: Agregar al menos 5 productos "postres"
-    //}
+    // ----------------------              ----------------------------//
+    // ----------------------       Postres      ----------------------//
+    // ----------------------              ----------------------------//
+    if (prodType == ProductType.POSTRES) {
+      // TODO: Agregar al menos 5 productos "postres"
+      return <ProductDessert>[
+        ProductDessert(
+          productTitle: "Brownie",
+          productDescription:
+              "Es un bizcocho de chocolate pequeño, típico de la gastronomía de Estados Unidos. Se llama así por su color marrón oscuro, o brown en inglés.",
+          productImage:
+              "https://thesweetmolcajete.com/wp-content/uploads/2014/02/Receta-de-Brownies-Faciles-y-Rapidos-3-500x500.jpg",
+          productSlice: ProductSlice.SINGLE,
+          productAmount: 0,
+        ),
+        ProductDessert(
+          productTitle: "Rollo de canela",
+          productDescription:
+              "El rollo de canela (también llamado pan de canela o espiral de canela) es un pan dulce creado en la década de 1920 en Suecia y Dinamarca. ",
+          productImage:
+              "https://t1.rg.ltmcdn.com/es/images/6/5/6/img_rollos_de_canela_faciles_23656_orig.jpg",
+          productSlice: ProductSlice.SINGLE,
+          productAmount: 0,
+        ),
+        ProductDessert(
+          productTitle: "Flan",
+          productDescription:
+              "El flan es un postre que se prepara con huevos enteros, leche y azúcar.",
+          productImage:
+              "https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2019/11/porque-no-me-sale-bien-el-flan-casero.jpg",
+          productSlice: ProductSlice.SINGLE,
+          productAmount: 0,
+        ),
+        ProductDessert(
+          productTitle: "Cheesecake",
+          productDescription:
+              "Popular en todo el mundo, su principal ingrediente es el queso crema. Su fondo es crujiente.",
+          productImage:
+              "https://t2.rg.ltmcdn.com/es/images/7/4/0/tarta_de_queso_y_limon_74047_600_square.jpg",
+          productSlice: ProductSlice.SINGLE,
+          productAmount: 0,
+        ),
+        ProductDessert(
+          productTitle: "Pastel de limón",
+          productDescription:
+              "Es una tarta formada por una base de masa quebrada u hojaldre que se rellena con crema de limón.",
+          productImage:
+              "https://cdn2.cocinadelirante.com/sites/default/files/images/2017/07/paydelimoncontequilahelado1.jpg",
+          productSlice: ProductSlice.SINGLE,
+          productAmount: 0,
+        ),
+      ];
+    }
 
     // ----------------------              ----------------------------//
-    // ----------------------       Granos      ----------------------------//
+    // ----------------------       Granos      -----------------------//
     // ----------------------              ----------------------------//
     if (prodType == ProductType.GRANO)
       return <ProductGrains>[
@@ -62,9 +113,9 @@ class ProductRepository {
           productAmount: 0,
         ),
       ];
-    // ----------------------              ----------------------------//
-    // ----------------------       Bebida caliente      ----------------------------//
-    // ----------------------              ----------------------------//
+    // ----------------------                   -----------------------//
+    // ----------------------       Bebida caliente      --------------//
+    // ----------------------                   -----------------------//
     if (prodType == ProductType.BEBIDAS)
       return <ProductHotDrinks>[
         ProductHotDrinks(
