@@ -91,7 +91,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                               },
                               child: Container(
                                 height: 24,
-                                width: 24,
+                                width: 50,
                                 color: (size == ProductSize.CH)
                                     ? Colors.purple[200]
                                     : Colors.white10,
@@ -105,7 +105,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                               },
                               child: Container(
                                 height: 24,
-                                width: 24,
+                                width: 50,
                                 color: (size == ProductSize.M)
                                     ? Colors.purple[200]
                                     : Colors.white10,
@@ -119,7 +119,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                               },
                               child: Container(
                                 height: 24,
-                                width: 24,
+                                width: 50,
                                 color: (size == ProductSize.G)
                                     ? Colors.purple[200]
                                     : Colors.white10,
@@ -175,5 +175,6 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
 
   void updateSize(ProductSize newSize) {
     size = newSize;
+    selectedDrink.productPrice = selectedDrink.productPriceCalculator();
   }
 }
