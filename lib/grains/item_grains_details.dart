@@ -1,6 +1,8 @@
 import 'package:estructura_practica_1/models/product_grains.dart';
 import 'package:flutter/material.dart';
 
+import '../colors.dart';
+
 class ItemGrainsDetails extends StatefulWidget {
   final ProductGrains selectedGrain;
   ItemGrainsDetails({Key key, @required this.selectedGrain}) : super(key: key);
@@ -37,7 +39,13 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                 child: Stack(
                   children: [
                     Container(
-                      color: Colors.orange,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [kDarkOrange, kLightOrange],
+                        ),
+                      ),
                     ),
                     Positioned(
                       top: 0,
@@ -89,7 +97,7 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                                 setState(() {});
                               },
                               child: Container(
-                                height: 24,
+                                height: 50,
                                 width: 50,
                                 color: (size == ProductWeight.CUARTO)
                                     ? Colors.purple[200]
@@ -103,7 +111,7 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                                 setState(() {});
                               },
                               child: Container(
-                                height: 24,
+                                height: 50,
                                 width: 50,
                                 color: (size == ProductWeight.KILO)
                                     ? Colors.purple[200]
@@ -131,8 +139,11 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                   Expanded(
                     child: MaterialButton(
                       onPressed: () {},
-                      child: Text("AGREGAR AL CARRITO"),
-                      color: Colors.yellow[200],
+                      child: Text(
+                        "AGREGAR AL CARRITO",
+                        style: TextStyle(color: kWhite),
+                      ),
+                      color: kDrakBrown,
                     ),
                   ),
                   SizedBox(
@@ -141,8 +152,11 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                   Expanded(
                     child: MaterialButton(
                       onPressed: () {},
-                      child: Text("COMPRAR AHORA"),
-                      color: Colors.purple[200],
+                      child: Text(
+                        "COMPRAR AHORA",
+                        style: TextStyle(color: kWhite),
+                      ),
+                      color: kDrakBrown,
                     ),
                   ),
                 ],

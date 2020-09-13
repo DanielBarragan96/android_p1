@@ -1,6 +1,8 @@
 import 'package:estructura_practica_1/models/product_hot_drinks.dart';
 import 'package:flutter/material.dart';
 
+import '../colors.dart';
+
 class ItemHotDrinksDetails extends StatefulWidget {
   final ProductHotDrinks selectedDrink;
   ItemHotDrinksDetails({Key key, @required this.selectedDrink})
@@ -38,7 +40,13 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                 child: Stack(
                   children: [
                     Container(
-                      color: Colors.orange,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [kDarkOrange, kLightOrange],
+                        ),
+                      ),
                     ),
                     Positioned(
                       top: 0,
@@ -49,7 +57,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                         padding: const EdgeInsets.all(24.0),
                         child: Image.network(
                           selectedDrink.productImage,
-                          fit: BoxFit.fill,
+                          fit: BoxFit.contain,
                         ),
                       ),
                     ),
@@ -90,7 +98,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                                 setState(() {});
                               },
                               child: Container(
-                                height: 24,
+                                height: 50,
                                 width: 50,
                                 color: (size == ProductSize.CH)
                                     ? Colors.purple[200]
@@ -104,7 +112,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                                 setState(() {});
                               },
                               child: Container(
-                                height: 24,
+                                height: 50,
                                 width: 50,
                                 color: (size == ProductSize.M)
                                     ? Colors.purple[200]
@@ -118,7 +126,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                                 setState(() {});
                               },
                               child: Container(
-                                height: 24,
+                                height: 50,
                                 width: 50,
                                 color: (size == ProductSize.G)
                                     ? Colors.purple[200]
@@ -146,8 +154,11 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                   Expanded(
                     child: MaterialButton(
                       onPressed: () {},
-                      child: Text("AGREGAR AL CARRITO"),
-                      color: Colors.yellow[200],
+                      child: Text(
+                        "AGREGAR AL CARRITO",
+                        style: TextStyle(color: kWhite),
+                      ),
+                      color: kDrakBrown,
                     ),
                   ),
                   SizedBox(
@@ -156,8 +167,11 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                   Expanded(
                     child: MaterialButton(
                       onPressed: () {},
-                      child: Text("COMPRAR AHORA"),
-                      color: Colors.purple[200],
+                      child: Text(
+                        "COMPRAR AHORA",
+                        style: TextStyle(color: kWhite),
+                      ),
+                      color: kDrakBrown,
                     ),
                   ),
                 ],
