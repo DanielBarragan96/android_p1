@@ -1,3 +1,4 @@
+import 'package:estructura_practica_1/desserts/desserts_page.dart';
 import 'package:estructura_practica_1/drinks/hot_drinks_page.dart';
 import 'package:estructura_practica_1/grains/grains_page.dart';
 import 'package:estructura_practica_1/models/product_hot_drinks.dart';
@@ -15,9 +16,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  var _scaffoldkey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldkey,
       appBar: AppBar(
         title: Text(widget.title),
         actions: <Widget>[
@@ -59,10 +63,14 @@ class _HomeState extends State<Home> {
               image: "https://i.imgur.com/fI7Tezv.png",
             ),
           ),
-          ItemHome(
-            // TODO: Al hacer clic, que muestre un snackbar de "Proximamente"
-            title: "Tazas",
-            image: "https://i.imgur.com/fMjtSpy.png",
+          GestureDetector(
+            onTap: () {
+              _snackBarTazas();
+            },
+            child: ItemHome(
+              title: "Tazas",
+              image: "https://i.imgur.com/fMjtSpy.png",
+            ),
           ),
         ],
       ),
@@ -99,14 +107,22 @@ class _HomeState extends State<Home> {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) {
-          // TODO Cambiar a DessertPage
-          return HotDrinksPage(
-            // TODO cambiar lista a Dessert
-            //drinksList: ProductRepository.loadProducts(ProductType.POSTRES),
-            drinksList: ProductRepository.loadProducts(ProductType.BEBIDAS),
+          return DessertsPage(
+            dessertList: ProductRepository.loadProducts(ProductType.POSTRES),
           );
         },
       ),
     );
+  }
+
+  void _snackBarTazas() {
+    _scaffoldkey.currentState
+      //para esconder el snackbar actual
+      ..hideCurrentSnackBar()
+      //mostrar dialogo
+      ..showSnackBar(SnackBar(
+        content: Text("Proximamente"),
+        duration: Duration(milliseconds: 1000),
+      ));
   }
 }
