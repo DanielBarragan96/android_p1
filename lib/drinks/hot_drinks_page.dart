@@ -23,7 +23,9 @@ class HotDrinksPage extends StatelessWidget {
             onTap: () {
               return Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => ItemHotDrinksDetails(),
+                  builder: (context) => ItemHotDrinksDetails(
+                    selectedDrink: drinksList[index],
+                  ),
                 ),
               );
             },

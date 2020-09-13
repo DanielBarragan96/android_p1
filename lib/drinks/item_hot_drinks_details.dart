@@ -1,12 +1,22 @@
+import 'package:estructura_practica_1/models/product_hot_drinks.dart';
 import 'package:flutter/material.dart';
 
 class ItemHotDrinksDetails extends StatefulWidget {
-  ItemHotDrinksDetails({Key key}) : super(key: key);
+  final ProductHotDrinks selectedDrink;
+  ItemHotDrinksDetails({Key key, @required this.selectedDrink})
+      : super(key: key);
   @override
   _ItemHotDrinksDetailsState createState() => _ItemHotDrinksDetailsState();
 }
 
 class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
+  ProductHotDrinks selectedDrink;
+  @override
+  void initState() {
+    selectedDrink = widget.selectedDrink;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,9 +43,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                       right: 0,
                       child: Padding(
                         padding: const EdgeInsets.all(24.0),
-                        child: FlutterLogo(
-                          size: 160,
-                        ),
+                        child: Image.network(selectedDrink.productImage),
                       ),
                     ),
                     Align(
@@ -50,16 +58,9 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 28),
-                child: Text("Titulo del producto"),
+                child: Text("${selectedDrink.productTitle}"),
               ),
-              Text("Lorem ipsum dolor sit amet consectetur adipiscing elit,"
-                  "diam aliquet dui semper integer lacinia velit taciti, eget nisl hac "
-                  "suspendisse erat purus. Eu odio dignissim leo elementum phasellus "
-                  "libero accumsan, suspendisse facilisis consequat sociosqu nibh hac "
-                  "curabitur nulla, augue lectus bibendum tempus urna sociis. "
-                  "Pellentesque varius bibendum arcu imperdiet accumsan tempor "
-                  "a at vel sapien eleifend et duis, rhoncus eros sociis nullam "
-                  "molestie blandit netus ultrices morbi quam augue lacus."),
+              Text("${selectedDrink.productDescription}"),
               SizedBox(
                 height: 48,
               ),
@@ -96,7 +97,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                     child: Column(
                       children: [
                         Text("Precio"),
-                        Text("\$69805409"),
+                        Text("\$${selectedDrink.productPrice}"),
                       ],
                     ),
                   ),
@@ -107,7 +108,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                   Expanded(
                     child: MaterialButton(
                       onPressed: () {},
-                      child: Text("Boton 1"),
+                      child: Text("AGREGAR AL CARRITO"),
                       color: Colors.yellow[200],
                     ),
                   ),
@@ -117,7 +118,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                   Expanded(
                     child: MaterialButton(
                       onPressed: () {},
-                      child: Text("Boton 2"),
+                      child: Text("COMPRAR AHORA"),
                       color: Colors.purple[200],
                     ),
                   ),
