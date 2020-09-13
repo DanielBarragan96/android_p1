@@ -21,18 +21,12 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldkey,
+      drawer: Drawer(
+        child: Profile(),
+      ),
       appBar: AppBar(
         title: Text(widget.title),
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.person),
-            onPressed: () {
-              Navigator.of(context).push(
-                // TODO: Eliminar este boton y adaptar todo el contenido de la pagina de perfil en un Drawer aqui en la pantalla Home
-                MaterialPageRoute(builder: (_) => Profile()),
-              );
-            },
-          ),
           IconButton(
             icon: Icon(Icons.shopping_cart),
             onPressed: () {},
