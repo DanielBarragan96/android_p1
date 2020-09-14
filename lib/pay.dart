@@ -1,6 +1,8 @@
 import 'package:estructura_practica_1/colors.dart';
 import 'package:flutter/material.dart';
 
+enum PayMethod { CARD, PAYPAL, GIFT }
+
 class Pay extends StatefulWidget {
   Pay({Key key}) : super(key: key);
 
@@ -30,7 +32,7 @@ class _PayState extends State<Pay> {
           ),
           GestureDetector(
             onTap: () {
-              successfulOrder(context);
+              successfulOrder(context, PayMethod.CARD);
             },
             child: Container(
               decoration: BoxDecoration(
@@ -80,7 +82,7 @@ class _PayState extends State<Pay> {
           ),
           GestureDetector(
             onTap: () {
-              successfulOrder(context);
+              successfulOrder(context, PayMethod.PAYPAL);
             },
             child: Container(
               decoration: BoxDecoration(
@@ -130,7 +132,7 @@ class _PayState extends State<Pay> {
           ),
           GestureDetector(
             onTap: () {
-              successfulOrder(context);
+              successfulOrder(context, PayMethod.GIFT);
             },
             child: Container(
               decoration: BoxDecoration(
@@ -183,14 +185,20 @@ class _PayState extends State<Pay> {
     );
   }
 
-  void successfulOrder(BuildContext context) {
+  void successfulOrder(BuildContext context, PayMethod payMethod) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          content: Image.network(
-            "https://malvern.dist.sdlmedia.com/distributions/?o=0d834772-4941-4ed4-83d3-8acf836f66b8?qualitylevel=60&width=1920",
-            fit: BoxFit.cover,
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.network(
+                "https://malvern.dist.sdlmedia.com/distributions/?o=0d834772-4941-4ed4-83d3-8acf836f66b8?qualitylevel=60&width=1920",
+                fit: BoxFit.cover,
+              ),
+              Text("Su pago se realizo con exito"),
+            ],
           ),
         );
       },
