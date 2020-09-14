@@ -1,17 +1,18 @@
 import 'package:estructura_practica_1/colors.dart';
 import 'package:estructura_practica_1/home/home.dart';
-import 'package:estructura_practica_1/login/register.dart';
+import 'package:estructura_practica_1/login/login.dart';
 import 'package:estructura_practica_1/utils/constants.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final _usernameFocusNode = FocusNode();
   final _passwordFocusNode = FocusNode();
+  bool _checkbox = false;
 
   @override
   void initState() {
@@ -40,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 30,
+                  height: 10,
                 ),
                 Container(
                   height: 200,
@@ -51,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 10,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 10.0),
@@ -63,7 +64,22 @@ class _LoginPageState extends State<LoginPage> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(0),
                       ),
-                      labelText: 'User',
+                      labelText: 'Nombre completo',
+                      focusColor: kWhite,
+                      labelStyle: TextStyle(color: kWhite),
+                      fillColor: kWhite,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: TextField(
+                    obscureText: true,
+                    cursorColor: kWhite,
+                    style: TextStyle(color: kWhite),
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Email',
                       focusColor: kWhite,
                       labelStyle: TextStyle(color: kWhite),
                       fillColor: kWhite,
@@ -96,17 +112,19 @@ class _LoginPageState extends State<LoginPage> {
                         height: 60,
                         child: MaterialButton(
                           onPressed: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return Home(
-                                    title: APP_TITLE,
-                                  );
-                                },
-                              ),
-                            );
+                            if (_checkbox) {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return Home(
+                                      title: APP_TITLE,
+                                    );
+                                  },
+                                ),
+                              );
+                            }
                           },
-                          child: Text("ENTRAR"),
+                          child: Text("REGISTRATE"),
                           color: kDrakBrown,
                         ),
                       ),
@@ -114,34 +132,41 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 40,
+                  height: 10,
                 ),
-                Text(
-                  "¿Olvidaste tu password?",
-                  style: TextStyle(color: kWhite),
+                CheckboxListTile(
+                  value: _checkbox,
+                  title: Text(
+                    "ACEPTO TERMINOS Y CONDICIONES",
+                    style: TextStyle(
+                      color: kWhite,
+                    ),
+                  ),
+                  controlAffinity: ListTileControlAffinity.leading,
+                  onChanged: (bool value) {
+                    _checkbox = (_checkbox) ? false : true;
+                    setState(() {});
+                  },
                 ),
                 SizedBox(
-                  height: 60,
+                  height: 10,
                 ),
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).pop();
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return RegisterPage();
-                        },
-                      ),
-                    );
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return LoginPage();
+                    }));
                   },
                   child: Column(
                     children: [
                       Text(
-                        "¿Aún no tienes cuenta?",
+                        "Ya tienes una cuenta?",
                         style: TextStyle(color: kWhite),
                       ),
                       Text(
-                        "REGISTRATE",
+                        "ENTRAR",
                         style: TextStyle(color: kWhite),
                       ),
                     ],

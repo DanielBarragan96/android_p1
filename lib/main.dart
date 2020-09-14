@@ -1,6 +1,7 @@
-import 'package:estructura_practica_1/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/utils/constants.dart';
+
+import 'login/main_login.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: PRIMARY_COLOR,
       ),
       // home: Home(title: APP_TITLE),
-      home: LoginPage(),
+      home: MainLoginPage(),
     );
   }
 }
