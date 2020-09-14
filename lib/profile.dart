@@ -1,3 +1,4 @@
+import 'package:estructura_practica_1/login/main_login.dart';
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/utils/constants.dart';
 
@@ -80,7 +81,16 @@ class Profile extends StatelessWidget {
                   Expanded(
                     child: RaisedButton(
                       child: Text(PROFILE_LOGOUT),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return MainLoginPage();
+                            },
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ],
