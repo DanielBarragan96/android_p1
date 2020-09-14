@@ -1,8 +1,6 @@
 import 'package:estructura_practica_1/colors.dart';
-import 'package:estructura_practica_1/home/home.dart';
 import 'package:estructura_practica_1/login/login.dart';
 import 'package:estructura_practica_1/login/register.dart';
-import 'package:estructura_practica_1/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class MainLoginPage extends StatefulWidget {

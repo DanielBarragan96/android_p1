@@ -74,7 +74,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 20.0),
                   child: TextField(
-                    obscureText: true,
+                    obscureText: false,
                     cursorColor: kWhite,
                     style: TextStyle(color: kWhite),
                     decoration: InputDecoration(
