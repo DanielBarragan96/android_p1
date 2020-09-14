@@ -44,7 +44,7 @@ class _ItemGrainsState extends State<ItemGrains> {
               left: MediaQuery.of(context).size.width / 2,
               child: Image.network(
                 grain.productImage,
-                fit: BoxFit.fill,
+                fit: BoxFit.cover,
               ),
             ),
             Positioned(

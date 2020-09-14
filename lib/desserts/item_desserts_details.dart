@@ -58,7 +58,7 @@ class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
                         padding: const EdgeInsets.all(24.0),
                         child: Image.network(
                           selectedDessert.productImage,
-                          fit: BoxFit.fill,
+                          fit: BoxFit.contain,
                         ),
                       ),
                     ),

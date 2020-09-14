@@ -44,7 +44,7 @@ class _ItemDessertState extends State<ItemDessert> {
               left: MediaQuery.of(context).size.width / 2,
               child: Image.network(
                 dessert.productImage,
-                fit: BoxFit.fill,
+                fit: BoxFit.cover,
               ),
             ),
             Positioned(

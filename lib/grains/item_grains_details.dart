@@ -57,7 +57,7 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                         padding: const EdgeInsets.all(24.0),
                         child: Image.network(
                           selectedGrain.productImage,
-                          fit: BoxFit.fill,
+                          fit: BoxFit.contain,
                         ),
                       ),
                     ),

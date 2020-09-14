@@ -43,7 +43,7 @@ class _ItemHotDrinksState extends State<ItemHotDrinks> {
               left: MediaQuery.of(context).size.width / 2,
               child: Image.network(
                 drink.productImage,
-                fit: BoxFit.fill,
+                fit: BoxFit.cover,
               ),
             ),
             Positioned(
