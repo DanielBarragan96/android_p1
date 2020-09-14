@@ -2,6 +2,7 @@ import 'package:estructura_practica_1/desserts/desserts_page.dart';
 import 'package:estructura_practica_1/drinks/hot_drinks_page.dart';
 import 'package:estructura_practica_1/grains/grains_page.dart';
 import 'package:estructura_practica_1/models/product_repository.dart';
+import 'package:estructura_practica_1/pay.dart';
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/home/item_home.dart';
 import 'package:estructura_practica_1/profile.dart';
@@ -29,7 +30,23 @@ class _HomeState extends State<Home> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.shopping_cart),
-            onPressed: () {},
+            onPressed: () {
+              //TODO como pasar lista a cart
+              // Navigator.of(context).push(
+              //   MaterialPageRoute(
+              //     builder: (context) {
+              //       return Cart(productsList: null);
+              //     },
+              //   ),
+              // );
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Pay();
+                  },
+                ),
+              );
+            },
           )
         ],
       ),
