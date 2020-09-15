@@ -149,7 +149,9 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                 children: [
                   Expanded(
                     child: MaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pop(selectedGrain);
+                      },
                       child: Text(
                         "AGREGAR AL CARRITO",
                         style: TextStyle(color: kWhite),

@@ -164,7 +164,9 @@ class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
                 children: [
                   Expanded(
                     child: MaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pop(selectedDessert);
+                      },
                       child: Text(
                         "AGREGAR AL CARRITO",
                         style: TextStyle(color: kWhite),

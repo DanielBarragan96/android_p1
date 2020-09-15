@@ -24,12 +24,18 @@ class DessertsPage extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
-              return Navigator.of(context).push(
+              return Navigator.of(context)
+                  .push(
                 MaterialPageRoute(
                   builder: (context) => ItemDessertsDetails(
                     selectedDrink: dessertList[index],
                   ),
                 ),
+              )
+                  .then(
+                (value) {
+                  if (value != null) Navigator.of(context).pop(value);
+                },
               );
             },
             child: ItemDessert(

@@ -5,12 +5,20 @@ import 'package:estructura_practica_1/models/product_hot_drinks.dart';
 
 import '../colors.dart';
 
-class HotDrinksPage extends StatelessWidget {
+class HotDrinksPage extends StatefulWidget {
   final List<ProductHotDrinks> drinksList;
+
   HotDrinksPage({
     Key key,
     @required this.drinksList,
   }) : super(key: key);
+
+  @override
+  _HotDrinksPageState createState() => _HotDrinksPageState();
+}
+
+class _HotDrinksPageState extends State<HotDrinksPage> {
+  ProductHotDrinks selectedDrink;
 
   @override
   Widget build(BuildContext context) {
@@ -20,20 +28,26 @@ class HotDrinksPage extends StatelessWidget {
         title: Text("Bebidas"),
       ),
       body: ListView.builder(
-        itemCount: drinksList.length,
+        itemCount: widget.drinksList.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
-              return Navigator.of(context).push(
+              return Navigator.of(context)
+                  .push(
                 MaterialPageRoute(
                   builder: (context) => ItemHotDrinksDetails(
-                    selectedDrink: drinksList[index],
+                    selectedDrink: widget.drinksList[index],
                   ),
                 ),
+              )
+                  .then(
+                (value) {
+                  if (value != null) Navigator.of(context).pop(value);
+                },
               );
             },
             child: ItemHotDrinks(
-              drink: drinksList[index],
+              drink: widget.drinksList[index],
             ),
           );
         },
