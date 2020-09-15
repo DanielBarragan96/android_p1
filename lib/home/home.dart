@@ -1,8 +1,12 @@
+import 'package:estructura_practica_1/cart/cart.dart';
 import 'package:estructura_practica_1/desserts/desserts_page.dart';
 import 'package:estructura_practica_1/drinks/hot_drinks_page.dart';
 import 'package:estructura_practica_1/grains/grains_page.dart';
+import 'package:estructura_practica_1/models/product_dessert.dart';
+import 'package:estructura_practica_1/models/product_grains.dart';
+import 'package:estructura_practica_1/models/product_hot_drinks.dart';
+import 'package:estructura_practica_1/models/product_item_cart.dart';
 import 'package:estructura_practica_1/models/product_repository.dart';
-import 'package:estructura_practica_1/pay.dart';
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/home/item_home.dart';
 import 'package:estructura_practica_1/profile.dart';
@@ -17,13 +21,26 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   var _scaffoldkey = GlobalKey<ScaffoldState>();
+  Map<String, dynamic> productsList = {
+    "bebidas": List<ProductHotDrinks>(),
+    "granos": List<ProductGrains>(),
+    "postres": List<ProductDessert>()
+  };
+  List<ProductItemCart> cartList = new List<ProductItemCart>();
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldkey,
       drawer: Drawer(
-        child: Profile(),
+        child: Profile(
+          cartList: cartList,
+        ),
       ),
       appBar: AppBar(
         title: Text(widget.title),
@@ -31,20 +48,10 @@ class _HomeState extends State<Home> {
           IconButton(
             icon: Icon(Icons.shopping_cart),
             onPressed: () {
-              //TODO como pasar lista a cart
-              // Navigator.of(context).push(
-              //   MaterialPageRoute(
-              //     builder: (context) {
-              //       return Cart(productsList: null);
-              //     },
-              //   ),
-              // );
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) {
-                    return Pay(
-                      payNow: true,
-                    );
+                    return Cart(productsList: cartList);
                   },
                 ),
               );
@@ -98,6 +105,8 @@ class _HomeState extends State<Home> {
           );
         },
       ),
+    ).then(
+      (item) => _addItemToCart(item),
     );
   }
 
@@ -110,6 +119,8 @@ class _HomeState extends State<Home> {
           );
         },
       ),
+    ).then(
+      (item) => _addItemToCart(item),
     );
   }
 
@@ -122,6 +133,8 @@ class _HomeState extends State<Home> {
           );
         },
       ),
+    ).then(
+      (item) => _addItemToCart(item),
     );
   }
 
@@ -134,5 +147,21 @@ class _HomeState extends State<Home> {
         content: Text("Proximamente"),
         duration: Duration(milliseconds: 1000),
       ));
+  }
+
+  bool _addItemToCart(dynamic item) {
+    if (item is ProductHotDrinks ||
+        item is ProductGrains ||
+        item is ProductDessert) {
+      cartList.add(
+        ProductItemCart(
+          productTitle: item.productTitle,
+          productAmount: item.productAmount + 1,
+          productPrice: item.productPrice,
+          productImage: item.productImage,
+        ),
+      );
+    }
+    return true;
   }
 }
