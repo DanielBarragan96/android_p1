@@ -199,6 +199,7 @@ class _PayState extends State<Pay> {
       Navigator.of(context).pop(true);
     }
     Navigator.of(context).pop();
+    //TODO cambiar formato del alert dialog
     showDialog(
       context: context,
       builder: (BuildContext context) {
