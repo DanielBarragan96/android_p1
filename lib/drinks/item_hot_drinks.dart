@@ -60,11 +60,11 @@ class _ItemHotDrinksState extends State<ItemHotDrinks> {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "${widget.drink.productTitle}",
-                        ),
-                        Text(
-                          "${widget.drink.productDescription}",
+                        Text("Café"),
+                        SingleChildScrollView(
+                          child: Text(
+                            "${widget.drink.productTitle}",
+                          ),
                         ),
                         Text(
                           "${widget.drink.productPrice}",

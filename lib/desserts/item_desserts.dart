@@ -61,11 +61,11 @@ class _ItemDessertState extends State<ItemDessert> {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "${widget.dessert.productTitle}",
-                        ),
-                        Text(
-                          "${widget.dessert.productDescription}",
+                        Text("Postre"),
+                        SingleChildScrollView(
+                          child: Text(
+                            "${widget.dessert.productTitle}",
+                          ),
                         ),
                         Text(
                           "${widget.dessert.productPrice}",
