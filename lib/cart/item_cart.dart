@@ -1,7 +1,10 @@
+import 'package:estructura_practica_1/models/product_item_cart.dart';
 import 'package:flutter/material.dart';
 
+import '../colors.dart';
+
 class ItemCart extends StatefulWidget {
-  final dynamic product;
+  final ProductItemCart product;
   final ValueChanged<double> onAmountUpdated;
   ItemCart({
     Key key,
@@ -14,36 +17,71 @@ class ItemCart extends StatefulWidget {
 }
 
 class _ItemCartState extends State<ItemCart> {
+  bool fav = false;
   @override
   Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.all(24),
-      child: Column(
-        children: <Widget>[
-          SizedBox(
-            height: 12,
+      child: Container(
+        height: MediaQuery.of(context).size.height / 4,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [kDarkOrange, kLightOrange],
           ),
-          Text("${widget.product.productTitle}"),
-          SizedBox(
-            height: 12,
-          ),
-          IconButton(icon: Icon(Icons.add_circle_outline), onPressed: _addProd),
-          SizedBox(
-            height: 12,
-          ),
-          IconButton(icon: Icon(Icons.remove_circle), onPressed: _remProd),
-          SizedBox(
-            height: 12,
-          ),
-          Text("${widget.product.productAmount}"),
-          SizedBox(
-            height: 12,
-          ),
-          Text("${widget.product.productPrice}"),
-          SizedBox(
-            height: 12,
-          ),
-        ],
+        ),
+        child: Stack(
+          children: <Widget>[
+            Positioned(
+              top: 10,
+              bottom: 10,
+              left: 10,
+              right: MediaQuery.of(context).size.width / 2,
+              child: Image.network(
+                widget.product.productImage,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Positioned(
+              top: 10,
+              bottom: 10,
+              left: MediaQuery.of(context).size.width / 2 - 30,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text("${widget.product.productTitle}"),
+                  Text("${widget.product.productSize}"),
+                  Text("${widget.product.productPrice}"),
+                ],
+              ),
+            ),
+            Positioned(
+              top: 3,
+              bottom: 0,
+              right: 5,
+              left: 0,
+              child: Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                  icon: Icon(Icons.favorite),
+                  color: fav ? Colors.red : Colors.black38,
+                  onPressed: () {
+                    updateFav();
+                    setState(() {});
+                  },
+                ),
+              ),
+            ),
+            //TODO move
+            // Text("${widget.product.productTitle}"),
+            // IconButton(
+            //     icon: Icon(Icons.add_circle_outline), onPressed: _addProd),
+            // IconButton(icon: Icon(Icons.remove_circle), onPressed: _remProd),
+            // Text("${widget.product.productAmount}"),
+            // Text("${widget.product.productPrice}"),
+          ],
+        ),
       ),
     );
   }
@@ -64,5 +102,9 @@ class _ItemCartState extends State<ItemCart> {
         }
       },
     );
+  }
+
+  void updateFav() {
+    fav = fav ? false : true;
   }
 }
