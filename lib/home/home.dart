@@ -159,6 +159,7 @@ class _HomeState extends State<Home> {
           productAmount: item.productAmount + 1,
           productPrice: item.productPrice,
           productImage: item.productImage,
+          productSize: item.getSize(),
         ),
       );
     }
