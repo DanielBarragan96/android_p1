@@ -1,4 +1,5 @@
 import 'package:estructura_practica_1/login/main_login.dart';
+import 'package:estructura_practica_1/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 import '../colors.dart';
@@ -27,7 +28,11 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<bool> _mockCheckForSession() async {
-    await Future.delayed(Duration(seconds: 5), () {});
+    await Future.delayed(
+        Duration(
+          seconds: SPLASH_SCREEN_DURATION,
+        ),
+        () {});
     return true;
   }
 

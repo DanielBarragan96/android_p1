@@ -16,3 +16,5 @@ const String PROFILE_PICTURE =
 
 // app
 const Color PRIMARY_COLOR = Colors.indigo;
+
+const int SPLASH_SCREEN_DURATION = 2;
