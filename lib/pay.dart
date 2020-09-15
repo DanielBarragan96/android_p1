@@ -199,6 +199,7 @@ class _PayState extends State<Pay> {
   void successfulOrder(BuildContext context, PayMethod payMethod) {
     if (!payNow) {
       //TODO limpiar carrito
+      Navigator.of(context).pop();
     }
     showDialog(
       context: context,
