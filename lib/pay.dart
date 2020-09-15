@@ -207,8 +207,8 @@ class _PayState extends State<Pay> {
           title: Column(
             children: [
               Container(
-                child: Image.network(
-                  "https://malvern.dist.sdlmedia.com/distributions/?o=0d834772-4941-4ed4-83d3-8acf836f66b8?qualitylevel=60&width=1920",
+                child: Image.asset(
+                  "coffee.jpg",
                   fit: BoxFit.cover,
                 ),
               ),
