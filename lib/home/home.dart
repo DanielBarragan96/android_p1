@@ -42,7 +42,9 @@ class _HomeState extends State<Home> {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) {
-                    return Pay();
+                    return Pay(
+                      payNow: true,
+                    );
                   },
                 ),
               );

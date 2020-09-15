@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 enum PayMethod { CARD, PAYPAL, GIFT }
 
 class Pay extends StatefulWidget {
-  Pay({Key key}) : super(key: key);
+  final bool payNow;
+  Pay({Key key, @required this.payNow}) : super(key: key);
 
   @override
   _PayState createState() => _PayState();
@@ -12,6 +13,13 @@ class Pay extends StatefulWidget {
 
 class _PayState extends State<Pay> {
   var _scaffoldkey = GlobalKey<ScaffoldState>();
+  bool payNow;
+
+  @override
+  void initState() {
+    payNow = widget.payNow;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +40,7 @@ class _PayState extends State<Pay> {
           ),
           GestureDetector(
             onTap: () {
+              Navigator.of(context).pop();
               successfulOrder(context, PayMethod.CARD);
             },
             child: Container(
@@ -82,6 +91,7 @@ class _PayState extends State<Pay> {
           ),
           GestureDetector(
             onTap: () {
+              Navigator.of(context).pop();
               successfulOrder(context, PayMethod.PAYPAL);
             },
             child: Container(
@@ -132,6 +142,7 @@ class _PayState extends State<Pay> {
           ),
           GestureDetector(
             onTap: () {
+              Navigator.of(context).pop();
               successfulOrder(context, PayMethod.GIFT);
             },
             child: Container(
@@ -186,20 +197,55 @@ class _PayState extends State<Pay> {
   }
 
   void successfulOrder(BuildContext context, PayMethod payMethod) {
+    if (!payNow) {
+      //TODO limpiar carrito
+    }
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
+          title: Column(
             children: [
-              Image.network(
-                "https://malvern.dist.sdlmedia.com/distributions/?o=0d834772-4941-4ed4-83d3-8acf836f66b8?qualitylevel=60&width=1920",
-                fit: BoxFit.cover,
+              Container(
+                child: Image.network(
+                  "https://malvern.dist.sdlmedia.com/distributions/?o=0d834772-4941-4ed4-83d3-8acf836f66b8?qualitylevel=60&width=1920",
+                  fit: BoxFit.cover,
+                ),
               ),
-              Text("Su pago se realizo con exito"),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                children: [
+                  Container(
+                    color: kDarkBlue,
+                    height: 50,
+                    width: 50,
+                    child: Image.asset(
+                      "cupping.png",
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text('¡Orden exitosa!'),
+                ],
+              ),
             ],
           ),
+          content: const Text(
+            'Tu orden ha sido registrada para mas información busca en la opción historial de compras en el perfil.',
+            style: TextStyle(fontSize: 12),
+          ),
+          actions: [
+            FlatButton(
+              child: const Text('ACCEPTAR'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            )
+          ],
         );
       },
     );
