@@ -33,4 +33,20 @@ class ProductHotDrinks {
       return (60 + Random().nextInt(80)).toDouble();
     return 999.0;
   }
+
+  String getSize() {
+    switch (this.productSize) {
+      case ProductSize.CH:
+        return "CH";
+        break;
+      case ProductSize.M:
+        return "M";
+        break;
+      case ProductSize.G:
+        return "G";
+        break;
+      default:
+        return "";
+    }
+  }
 }

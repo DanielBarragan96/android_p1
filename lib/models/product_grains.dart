@@ -32,4 +32,17 @@ class ProductGrains {
       return (40 + Random().nextInt(60)).toDouble();
     return 9999.0;
   }
+
+  String getSize() {
+    switch (this.productWeight) {
+      case ProductWeight.CUARTO:
+        return "250 g";
+        break;
+      case ProductWeight.KILO:
+        return "1 Kg";
+        break;
+      default:
+        return "";
+    }
+  }
 }

@@ -33,4 +33,20 @@ class ProductDessert {
       return (80 + Random().nextInt(80)).toDouble();
     return 9999.0;
   }
+
+  String getSize() {
+    switch (this.productSlice) {
+      case ProductSlice.HALF:
+        return "Media rebanada";
+        break;
+      case ProductSlice.SINGLE:
+        return "1 Rebanada mediana";
+        break;
+      case ProductSlice.DOUBLE:
+        return "1 Rebanada grande";
+        break;
+      default:
+        return "";
+    }
+  }
 }
