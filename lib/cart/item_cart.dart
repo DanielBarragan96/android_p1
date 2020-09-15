@@ -56,9 +56,13 @@ class _ItemCartState extends State<ItemCart> {
   }
 
   void _remProd() {
-    setState(() {
-      --widget.product.productAmount;
-    });
-    widget.onAmountUpdated(-1 * widget.product.productPrice);
+    setState(
+      () {
+        if (widget.product.productAmount > 0) {
+          --widget.product.productAmount;
+          widget.onAmountUpdated(-1 * widget.product.productPrice);
+        }
+      },
+    );
   }
 }
