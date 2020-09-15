@@ -1,4 +1,5 @@
 import 'package:estructura_practica_1/models/product_grains.dart';
+import 'package:estructura_practica_1/pay.dart';
 import 'package:flutter/material.dart';
 
 import '../colors.dart';
@@ -161,7 +162,17 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                   ),
                   Expanded(
                     child: MaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).pop();
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return Pay(payNow: true);
+                            },
+                          ),
+                        );
+                      },
                       child: Text(
                         "COMPRAR AHORA",
                         style: TextStyle(color: kWhite),
@@ -170,7 +181,7 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                     ),
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),

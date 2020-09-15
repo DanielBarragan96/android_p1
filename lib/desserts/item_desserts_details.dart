@@ -2,6 +2,7 @@ import 'package:estructura_practica_1/models/product_dessert.dart';
 import 'package:flutter/material.dart';
 
 import '../colors.dart';
+import '../pay.dart';
 
 class ItemDessertsDetails extends StatefulWidget {
   final ProductDessert selectedDrink;
@@ -176,7 +177,17 @@ class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
                   ),
                   Expanded(
                     child: MaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).pop();
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return Pay(payNow: true);
+                            },
+                          ),
+                        );
+                      },
                       child: Text(
                         "COMPRAR AHORA",
                         style: TextStyle(color: kWhite),
