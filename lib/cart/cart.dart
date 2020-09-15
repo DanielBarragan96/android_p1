@@ -67,10 +67,15 @@ class _CartState extends State<Cart> {
                 height: 40,
                 child: MaterialButton(
                   onPressed: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return Pay(payNow: false);
-                    }));
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return Pay(payNow: false);
+                        },
+                      ),
+                    ).then((value) {
+                      if (value) widget.productsList.clear();
+                    });
                   },
                   child: Text("PAGAR"),
                   color: kDrakBrown,
