@@ -47,12 +47,43 @@ class _ItemCartState extends State<ItemCart> {
               top: 10,
               bottom: 10,
               left: MediaQuery.of(context).size.width / 2 - 30,
+              right: 10,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("${widget.product.productTitle}"),
-                  Text("${widget.product.productSize}"),
-                  Text("${widget.product.productPrice}"),
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("${widget.product.productTitle}"),
+                        Text("${widget.product.productSize}"),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Row(
+                      children: [
+                        IconButton(
+                          icon: Icon(
+                            Icons.remove_circle,
+                          ),
+                          onPressed: _remProd,
+                        ),
+                        Text("${widget.product.productAmount}"),
+                        IconButton(
+                          icon: Icon(
+                            Icons.add_circle_outline,
+                          ),
+                          onPressed: _addProd,
+                        ),
+                        Text("\$ ${widget.product.productPrice}"),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -73,13 +104,16 @@ class _ItemCartState extends State<ItemCart> {
                 ),
               ),
             ),
-            //TODO move
-            // Text("${widget.product.productTitle}"),
-            // IconButton(
-            //     icon: Icon(Icons.add_circle_outline), onPressed: _addProd),
-            // IconButton(icon: Icon(Icons.remove_circle), onPressed: _remProd),
-            // Text("${widget.product.productAmount}"),
-            // Text("${widget.product.productPrice}"),
+            Container(
+              alignment: Alignment.bottomRight,
+              child: IconButton(
+                icon: Icon(
+                  Icons.delete,
+                ),
+                //TODO remove item cart
+                onPressed: () {},
+              ),
+            )
           ],
         ),
       ),
