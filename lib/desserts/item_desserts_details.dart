@@ -165,6 +165,7 @@ class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
                   Expanded(
                     child: MaterialButton(
                       onPressed: () {
+                        selectedDessert.productSlice = size;
                         Navigator.of(context).pop(selectedDessert);
                       },
                       child: Text(

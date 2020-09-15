@@ -165,6 +165,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                   Expanded(
                     child: MaterialButton(
                       onPressed: () {
+                        selectedDrink.productSize = size;
                         Navigator.of(context).pop(selectedDrink);
                       },
                       child: Text(

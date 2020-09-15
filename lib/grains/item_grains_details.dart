@@ -150,6 +150,7 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                   Expanded(
                     child: MaterialButton(
                       onPressed: () {
+                        selectedGrain.productWeight = size;
                         Navigator.of(context).pop(selectedGrain);
                       },
                       child: Text(
