@@ -24,21 +24,6 @@ class ProductHotDrinks {
     productPrice = productPriceCalculator();
   }
 
-  // Mandar llamar este metodo cuando se cambie el tamanio del producto
-  // De esta manera el precio del nuevo tamanio del producto se autocalcula
-  // Por ejemplo cuando se cambie a M
-  //
-  // FlatButton(
-  //   child: Text("M"),
-  //   onPressed: () {
-  //     setState(() {
-  //       prod.productSize = ProductSize.M;
-  //       prod.productPrice = prods.productPriceCalculator();
-  //     });
-  //   },
-  // ),
-  //
-  //
   double productPriceCalculator() {
     if (this.productSize == ProductSize.CH)
       return (20 + Random().nextInt(40)).toDouble();
