@@ -31,21 +31,26 @@ class _CartState extends State<Cart> {
       ),
       body: Stack(
         children: <Widget>[
-          Container(
-            height: MediaQuery.of(context).size.height * 0.9,
-            child: ListView.builder(
-              itemCount: widget.productsList.length,
-              itemBuilder: (BuildContext context, int index) {
-                return ItemCart(
-                  onAmountUpdated: _priceUpdate,
-                  product: widget.productsList[index],
-                );
-              },
-            ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height,
           ),
-          Positioned(
-            bottom: 0,
-            child: Text("Total: \$$_total"),
+          Column(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height * 0.7,
+                child: ListView.builder(
+                  itemCount: widget.productsList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return ItemCart(
+                      onAmountUpdated: _priceUpdate,
+                      product: widget.productsList[index],
+                    );
+                  },
+                ),
+              ),
+              Text("Total:"),
+              Text("\$$_total MX"),
+            ],
           ),
         ],
       ),
