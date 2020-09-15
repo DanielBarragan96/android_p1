@@ -40,7 +40,6 @@ class _PayState extends State<Pay> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.of(context).pop();
               successfulOrder(context, PayMethod.CARD);
             },
             child: Container(
@@ -91,7 +90,6 @@ class _PayState extends State<Pay> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.of(context).pop();
               successfulOrder(context, PayMethod.PAYPAL);
             },
             child: Container(
@@ -142,7 +140,6 @@ class _PayState extends State<Pay> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.of(context).pop();
               successfulOrder(context, PayMethod.GIFT);
             },
             child: Container(
@@ -198,9 +195,10 @@ class _PayState extends State<Pay> {
 
   void successfulOrder(BuildContext context, PayMethod payMethod) {
     if (!payNow) {
-      //TODO limpiar carrito
-      Navigator.of(context).pop();
+      //limpiar carrito
+      Navigator.of(context).pop(true);
     }
+    Navigator.of(context).pop();
     showDialog(
       context: context,
       builder: (BuildContext context) {
