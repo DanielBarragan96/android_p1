@@ -21,9 +21,9 @@ class _ItemCartState extends State<ItemCart> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(24),
+      margin: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
       child: Container(
-        height: MediaQuery.of(context).size.height / 4,
+        height: MediaQuery.of(context).size.height / 5,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
