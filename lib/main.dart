@@ -1,8 +1,5 @@
 import 'package:estructura_practica_1/home/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:estructura_practica_1/utils/constants.dart';
-
-import 'login/main_login.dart';
 
 void main() => runApp(MyApp());
 
