@@ -62,8 +62,16 @@ class _ItemCartState extends State<ItemCart> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("${widget.product.productTitle}"),
-                        Text("${widget.product.productSize}"),
+                        Text(
+                          "${widget.product.productTitle}",
+                          style: Theme.of(context).textTheme.bodyText1,
+                        ),
+                        SingleChildScrollView(
+                          child: Text(
+                            "${widget.product.productSize}",
+                            style: Theme.of(context).textTheme.subtitle1,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -84,7 +92,10 @@ class _ItemCartState extends State<ItemCart> {
                           ),
                           onPressed: _addProd,
                         ),
-                        Text("\$ ${widget.product.productPrice}"),
+                        Text(
+                          "\$ ${widget.product.productPrice}",
+                          style: Theme.of(context).textTheme.bodyText1,
+                        ),
                       ],
                     ),
                   ),

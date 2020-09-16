@@ -56,13 +56,19 @@ class _CartState extends State<Cart> {
                   },
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
               Container(
                 alignment: Alignment.bottomCenter,
                 child: Column(
                   children: [
-                    Text("Total:"),
-                    Text("\$$_total MX"),
+                    Text(
+                      "Total:",
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
+                    Text(
+                      "\$$_total MX",
+                      style: Theme.of(context).textTheme.headline6,
+                    ),
                   ],
                 ),
               ),

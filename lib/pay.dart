@@ -34,7 +34,7 @@ class _PayState extends State<Pay> {
           Container(
             child: Text(
               "Elige tu método de pago:",
-              style: TextStyle(fontSize: 25),
+              style: Theme.of(context).textTheme.headline6,
             ),
             margin: EdgeInsets.only(bottom: 10, top: 30, left: 20, right: 20),
           ),

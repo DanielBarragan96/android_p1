@@ -47,6 +47,11 @@ TextTheme _buildTextTheme() {
           fontWeight: FontWeight.w500,
           fontSize: 16.0,
         ),
+        subtitle1: base.bodyText1.copyWith(
+          fontWeight: FontWeight.w500,
+          fontSize: 16.0,
+          color: kWhite,
+        ),
       )
       .apply();
 }
