@@ -18,6 +18,8 @@ class Cart extends StatefulWidget {
 
 class _CartState extends State<Cart> {
   double _total = 0;
+  var _scaffoldkey = GlobalKey<ScaffoldState>();
+
   @override
   void initState() {
     super.initState();
@@ -29,6 +31,7 @@ class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldkey,
       appBar: AppBar(
         title: Text("Lista de compras"),
       ),
@@ -47,6 +50,8 @@ class _CartState extends State<Cart> {
                     return ItemCart(
                       onAmountUpdated: _priceUpdate,
                       product: widget.productsList[index],
+                      index: index,
+                      onDeleteCard: _removeCard,
                     );
                   },
                 ),
@@ -67,15 +72,22 @@ class _CartState extends State<Cart> {
                 height: 40,
                 child: MaterialButton(
                   onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return Pay(payNow: false);
+                    if (widget.productsList.length > 0) {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Pay(payNow: false);
+                          },
+                        ),
+                      ).then(
+                        (value) {
+                          if (value) widget.productsList.clear();
                         },
-                      ),
-                    ).then((value) {
-                      if (value) widget.productsList.clear();
-                    });
+                      );
+                    } else {
+                      //TODO Mensaje de no hay productos
+                      _carritoVacio();
+                    }
                   },
                   child: Text("PAGAR"),
                   color: kDrakBrown,
@@ -89,8 +101,29 @@ class _CartState extends State<Cart> {
   }
 
   void _priceUpdate(double newItemPrice) {
-    setState(() {
-      _total += newItemPrice;
-    });
+    setState(
+      () {
+        _total += newItemPrice;
+      },
+    );
+  }
+
+  void _removeCard(int index) {
+    int amount = widget.productsList[index].productAmount;
+    double price = widget.productsList[index].productPrice;
+    double total = amount * price;
+    _priceUpdate(-total);
+    widget.productsList.removeAt(index);
+    setState(() {});
+  }
+
+  void _carritoVacio() {
+    _scaffoldkey.currentState
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(
+        content: Text("Para poder pagar agregue elementos al carrito"),
+        duration: Duration(milliseconds: 1000),
+        behavior: SnackBarBehavior.floating,
+      ));
   }
 }

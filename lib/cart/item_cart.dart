@@ -6,10 +6,14 @@ import '../colors.dart';
 class ItemCart extends StatefulWidget {
   final ProductItemCart product;
   final ValueChanged<double> onAmountUpdated;
+  final int index;
+  final ValueChanged<int> onDeleteCard;
   ItemCart({
     Key key,
     @required this.onAmountUpdated,
     @required this.product,
+    @required this.index,
+    @required this.onDeleteCard,
   }) : super(key: key);
 
   @override
@@ -110,8 +114,11 @@ class _ItemCartState extends State<ItemCart> {
                 icon: Icon(
                   Icons.delete,
                 ),
-                //TODO remove item cart
-                onPressed: () {},
+                //remove item cart
+                onPressed: () {
+                  widget.onDeleteCard(widget.index);
+                  setState(() {});
+                },
               ),
             )
           ],
