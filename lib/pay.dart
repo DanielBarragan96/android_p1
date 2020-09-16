@@ -68,7 +68,10 @@ class _PayState extends State<Pay> {
                       bottom: 10,
                       left: MediaQuery.of(context).size.width / 2,
                       right: 0,
-                      child: Text("Tarjeta de crédito"),
+                      child: Text(
+                        "Tarjeta de crédito",
+                        style: Theme.of(context).textTheme.headline5,
+                      ),
                     ),
                     Positioned(
                       top: 3,
@@ -118,7 +121,10 @@ class _PayState extends State<Pay> {
                       bottom: 10,
                       left: MediaQuery.of(context).size.width / 2,
                       right: 0,
-                      child: Text("PayPal"),
+                      child: Text(
+                        "PayPal",
+                        style: Theme.of(context).textTheme.headline5,
+                      ),
                     ),
                     Positioned(
                       top: 3,
@@ -168,7 +174,10 @@ class _PayState extends State<Pay> {
                       bottom: 10,
                       left: MediaQuery.of(context).size.width / 2,
                       right: 0,
-                      child: Text("Tarjeta de crédito"),
+                      child: Text(
+                        "Tarjeta de regalo",
+                        style: Theme.of(context).textTheme.headline5,
+                      ),
                     ),
                     Positioned(
                       top: 3,
