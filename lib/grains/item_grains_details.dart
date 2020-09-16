@@ -78,7 +78,10 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 28),
-                child: Text("${selectedGrain.productTitle}"),
+                child: Text(
+                  "${selectedGrain.productTitle}",
+                  style: Theme.of(context).textTheme.headline6,
+                ),
               ),
               Text("${selectedGrain.productDescription}"),
               SizedBox(
@@ -89,7 +92,10 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                   Expanded(
                     child: Column(
                       children: [
-                        Text("Tamaño"),
+                        Text(
+                          "Tamaño",
+                          style: Theme.of(context).textTheme.bodyText1,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -130,7 +136,10 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                   Expanded(
                     child: Column(
                       children: [
-                        Text("Precio"),
+                        Text(
+                          "Precio",
+                          style: Theme.of(context).textTheme.bodyText1,
+                        ),
                         Container(
                           height: 50,
                           width: 50,

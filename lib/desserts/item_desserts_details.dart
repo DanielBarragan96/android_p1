@@ -79,7 +79,10 @@ class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 28),
-                child: Text("${selectedDessert.productTitle}"),
+                child: Text(
+                  "${selectedDessert.productTitle}",
+                  style: Theme.of(context).textTheme.headline6,
+                ),
               ),
               Text("${selectedDessert.productDescription}"),
               SizedBox(
@@ -90,7 +93,10 @@ class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
                   Expanded(
                     child: Column(
                       children: [
-                        Text("Tamaño"),
+                        Text(
+                          "Tamaño",
+                          style: Theme.of(context).textTheme.bodyText1,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -145,7 +151,10 @@ class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
                   Expanded(
                     child: Column(
                       children: [
-                        Text("Precio"),
+                        Text(
+                          "Precio",
+                          style: Theme.of(context).textTheme.bodyText1,
+                        ),
                         Container(
                           height: 50,
                           width: 50,
