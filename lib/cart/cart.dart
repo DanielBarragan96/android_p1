@@ -85,7 +85,7 @@ class _CartState extends State<Cart> {
                         },
                       );
                     } else {
-                      //TODO Mensaje de no hay productos
+                      //Mensaje de no hay productos
                       _carritoVacio();
                     }
                   },
