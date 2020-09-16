@@ -1,3 +1,4 @@
+import 'package:estructura_practica_1/colors.dart';
 import 'package:flutter/material.dart';
 
 class ItemHome extends StatelessWidget {
@@ -42,7 +43,7 @@ class ItemHome extends StatelessWidget {
                   margin: EdgeInsets.only(left: 16),
                   width: 160,
                   decoration: BoxDecoration(
-                    color: Colors.yellow[300],
+                    color: kLightBrown,
                     borderRadius: BorderRadius.all(
                       Radius.circular(30),
                     ),
