@@ -61,14 +61,28 @@ class _ItemGrainsState extends State<ItemGrains> {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Grano"),
-                        SingleChildScrollView(
+                        Expanded(
+                          flex: 1,
                           child: Text(
-                            "${widget.grain.productTitle}",
+                            "Grano",
+                            style: Theme.of(context).textTheme.bodyText1,
                           ),
                         ),
-                        Text(
-                          "${widget.grain.productPrice}",
+                        Expanded(
+                          flex: 1,
+                          child: SingleChildScrollView(
+                            child: Text(
+                              "${widget.grain.productTitle}",
+                              style: Theme.of(context).textTheme.headline5,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: Text(
+                            "${widget.grain.productPrice}",
+                            style: Theme.of(context).textTheme.headline6,
+                          ),
                         ),
                       ],
                     ),

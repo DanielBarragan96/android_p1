@@ -61,14 +61,28 @@ class _ItemDessertState extends State<ItemDessert> {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Postre"),
-                        SingleChildScrollView(
+                        Expanded(
+                          flex: 1,
                           child: Text(
-                            "${widget.dessert.productTitle}",
+                            "Postre",
+                            style: Theme.of(context).textTheme.bodyText1,
                           ),
                         ),
-                        Text(
-                          "${widget.dessert.productPrice}",
+                        Expanded(
+                          flex: 1,
+                          child: SingleChildScrollView(
+                            child: Text(
+                              "${widget.dessert.productTitle}",
+                              style: Theme.of(context).textTheme.headline5,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: Text(
+                            "\$${widget.dessert.productPrice}",
+                            style: Theme.of(context).textTheme.headline6,
+                          ),
                         ),
                       ],
                     ),
