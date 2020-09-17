@@ -208,56 +208,85 @@ class _PayState extends State<Pay> {
       Navigator.of(context).pop(true);
     }
     Navigator.of(context).pop();
-    //TODO cambiar formato del alert dialog
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Column(
-            children: [
-              Container(
-                child: Image.asset(
-                  "coffee.jpg",
-                  fit: BoxFit.cover,
+          contentPadding: EdgeInsets.all(0.0),
+          content: Container(
+            child: Stack(
+              children: [
+                Positioned(
+                  child: Image.asset(
+                    "coffee.jpg",
+                    fit: BoxFit.contain,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                children: [
-                  Container(
-                    color: kDarkBlue,
-                    height: 50,
-                    width: 50,
-                    child: Image.asset(
-                      "cupping.png",
-                      fit: BoxFit.fitWidth,
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  left: 0,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: kWhite,
+                    ),
+                    child: Container(
+                      color: kDarkBlue,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              bottom: 8,
+                            ),
+                            child: Row(
+                              children: [
+                                SizedBox(width: 20),
+                                Container(
+                                  color: kDarkBlue,
+                                  height: 50,
+                                  width: 50,
+                                  padding: const EdgeInsets.all(5),
+                                  child: Image.asset(
+                                    "cupping.png",
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                                SizedBox(width: 20),
+                                Text(
+                                  '¡Orden exitosa!',
+                                  style: Theme.of(context).textTheme.headline5,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 15),
+                            child: Text(
+                              "Tu orden ha sido registrada para mas información busca en la opción historial de compras en el perfil.",
+                              style: Theme.of(context).textTheme.subtitle1,
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: FlatButton(
+                              child: Text(
+                                'ACCEPTAR',
+                                style: Theme.of(context).textTheme.subtitle1,
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Text(
-                    '¡Orden exitosa!',
-                    style: Theme.of(context).textTheme.headline6,
-                  ),
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
-          content: Text(
-            'Tu orden ha sido registrada para mas información busca en la opción historial de compras en el perfil.',
-            style: Theme.of(context).textTheme.bodyText1,
-          ),
-          actions: [
-            FlatButton(
-              child: const Text('ACCEPTAR'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            )
-          ],
         );
       },
     );
