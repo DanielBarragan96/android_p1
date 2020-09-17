@@ -14,12 +14,10 @@ class ItemDessertsDetails extends StatefulWidget {
 
 class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
   ProductDessert selectedDessert;
-  bool fav;
   ProductSlice size;
   @override
   void initState() {
     selectedDessert = widget.selectedDrink;
-    fav = selectedDessert.liked;
     size = selectedDessert.productSlice;
     super.initState();
   }
@@ -67,7 +65,8 @@ class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
                       alignment: Alignment.topRight,
                       child: IconButton(
                         icon: Icon(Icons.favorite),
-                        color: fav ? Colors.red : Colors.black38,
+                        color:
+                            selectedDessert.liked ? Colors.red : Colors.black38,
                         onPressed: () {
                           updateFav();
                           setState(() {});
@@ -178,6 +177,7 @@ class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
                     child: MaterialButton(
                       onPressed: () {
                         selectedDessert.productSlice = size;
+                        selectedDessert.productAmount++;
                         Navigator.of(context).pop(selectedDessert);
                       },
                       child: Text(
@@ -220,7 +220,7 @@ class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
   }
 
   void updateFav() {
-    fav = fav ? false : true;
+    selectedDessert.liked = (selectedDessert.liked) ? false : true;
   }
 
   void updateSize(ProductSlice newSize) {

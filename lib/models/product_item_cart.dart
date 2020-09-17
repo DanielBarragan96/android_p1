@@ -8,6 +8,7 @@ class ProductItemCart {
   double productPrice;
   String productImage;
   final ProductType typeOfProduct;
+  bool productLiked;
 
   ProductItemCart({
     this.typeOfProduct,
@@ -16,5 +17,6 @@ class ProductItemCart {
     @required this.productAmount,
     @required this.productPrice,
     @required this.productImage,
+    @required this.productLiked,
   });
 }

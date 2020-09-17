@@ -10,8 +10,8 @@ class ProductGrains {
   final String productImage; // url de imagen del producto
   ProductWeight productWeight; // tamano del producto
   double productPrice; // precio del producto autocalculado
-  final int productAmount; // cantidad de producto por comprar
-  final bool liked;
+  int productAmount; // cantidad de producto por comprar
+  bool liked;
 
   ProductGrains({
     @required this.productTitle,

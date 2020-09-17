@@ -21,7 +21,6 @@ class ItemCart extends StatefulWidget {
 }
 
 class _ItemCartState extends State<ItemCart> {
-  bool fav = false;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -111,7 +110,8 @@ class _ItemCartState extends State<ItemCart> {
                 alignment: Alignment.topRight,
                 child: IconButton(
                   icon: Icon(Icons.favorite),
-                  color: fav ? Colors.red : Colors.black38,
+                  color:
+                      widget.product.productLiked ? Colors.red : Colors.black38,
                   onPressed: () {
                     updateFav();
                     setState(() {});
@@ -157,6 +157,6 @@ class _ItemCartState extends State<ItemCart> {
   }
 
   void updateFav() {
-    fav = fav ? false : true;
+    widget.product.productLiked = (widget.product.productLiked) ? false : true;
   }
 }

@@ -13,12 +13,10 @@ class ItemGrainsDetails extends StatefulWidget {
 
 class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
   ProductGrains selectedGrain;
-  bool fav;
   ProductWeight size;
   @override
   void initState() {
     selectedGrain = widget.selectedGrain;
-    fav = selectedGrain.liked;
     size = selectedGrain.productWeight;
     super.initState();
   }
@@ -66,7 +64,8 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                       alignment: Alignment.topRight,
                       child: IconButton(
                         icon: Icon(Icons.favorite),
-                        color: fav ? Colors.red : Colors.black38,
+                        color:
+                            selectedGrain.liked ? Colors.red : Colors.black38,
                         onPressed: () {
                           updateFav();
                           setState(() {});
@@ -163,6 +162,7 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                     child: MaterialButton(
                       onPressed: () {
                         selectedGrain.productWeight = size;
+                        selectedGrain.productAmount++;
                         Navigator.of(context).pop(selectedGrain);
                       },
                       child: Text(
@@ -205,7 +205,7 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
   }
 
   void updateFav() {
-    fav = fav ? false : true;
+    selectedGrain.liked = (selectedGrain.liked) ? false : true;
   }
 
   void updateSize(ProductWeight newSize) {

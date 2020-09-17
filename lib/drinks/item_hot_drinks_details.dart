@@ -14,12 +14,10 @@ class ItemHotDrinksDetails extends StatefulWidget {
 
 class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
   ProductHotDrinks selectedDrink;
-  bool fav;
   ProductSize size;
   @override
   void initState() {
     selectedDrink = widget.selectedDrink;
-    fav = selectedDrink.liked;
     size = selectedDrink.productSize;
     super.initState();
   }
@@ -67,7 +65,8 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                       alignment: Alignment.topRight,
                       child: IconButton(
                         icon: Icon(Icons.favorite),
-                        color: fav ? Colors.red : Colors.black38,
+                        color:
+                            selectedDrink.liked ? Colors.red : Colors.black38,
                         onPressed: () {
                           updateFav();
                           setState(() {});
@@ -178,6 +177,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                     child: MaterialButton(
                       onPressed: () {
                         selectedDrink.productSize = size;
+                        selectedDrink.productAmount++;
                         Navigator.of(context).pop(selectedDrink);
                       },
                       child: Text(
@@ -220,7 +220,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
   }
 
   void updateFav() {
-    fav = fav ? false : true;
+    selectedDrink.liked = (selectedDrink.liked) ? false : true;
   }
 
   void updateSize(ProductSize newSize) {

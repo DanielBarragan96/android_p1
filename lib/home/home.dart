@@ -156,10 +156,11 @@ class _HomeState extends State<Home> {
       cartList.add(
         ProductItemCart(
           productTitle: item.productTitle,
-          productAmount: item.productAmount + 1,
+          productAmount: item.productAmount,
           productPrice: item.productPrice,
           productImage: item.productImage,
           productSize: item.getSize(),
+          productLiked: item.liked,
         ),
       );
     }
