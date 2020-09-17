@@ -238,14 +238,17 @@ class _PayState extends State<Pay> {
                   SizedBox(
                     width: 20,
                   ),
-                  Text('¡Orden exitosa!'),
+                  Text(
+                    '¡Orden exitosa!',
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
                 ],
               ),
             ],
           ),
-          content: const Text(
+          content: Text(
             'Tu orden ha sido registrada para mas información busca en la opción historial de compras en el perfil.',
-            style: TextStyle(fontSize: 12),
+            style: Theme.of(context).textTheme.bodyText1,
           ),
           actions: [
             FlatButton(

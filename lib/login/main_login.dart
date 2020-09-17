@@ -70,7 +70,10 @@ class _MainLoginPageState extends State<MainLoginPage> {
                               ),
                             );
                           },
-                          child: Text("REGISTRATE"),
+                          child: Text(
+                            "REGISTRATE",
+                            style: Theme.of(context).textTheme.bodyText2,
+                          ),
                           color: kDrakBrown,
                         ),
                       ),
@@ -91,7 +94,10 @@ class _MainLoginPageState extends State<MainLoginPage> {
                               ),
                             );
                           },
-                          child: Text("INGRESAR"),
+                          child: Text(
+                            "INGRESAR",
+                            style: Theme.of(context).textTheme.bodyText2,
+                          ),
                           color: kDrakBrown,
                         ),
                       ),

@@ -84,7 +84,10 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                   style: Theme.of(context).textTheme.headline6,
                 ),
               ),
-              Text("${selectedDrink.productDescription}"),
+              Text(
+                "${selectedDrink.productDescription}",
+                style: Theme.of(context).textTheme.bodyText2,
+              ),
               SizedBox(
                 height: 48,
               ),

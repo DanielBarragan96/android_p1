@@ -83,7 +83,10 @@ class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
                   style: Theme.of(context).textTheme.headline6,
                 ),
               ),
-              Text("${selectedGrain.productDescription}"),
+              Text(
+                "${selectedGrain.productDescription}",
+                style: Theme.of(context).textTheme.bodyText2,
+              ),
               SizedBox(
                 height: 48,
               ),

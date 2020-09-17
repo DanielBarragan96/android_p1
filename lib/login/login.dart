@@ -106,7 +106,10 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             );
                           },
-                          child: Text("ENTRAR"),
+                          child: Text(
+                            "ENTRAR",
+                            style: Theme.of(context).textTheme.bodyText2,
+                          ),
                           color: kDrakBrown,
                         ),
                       ),

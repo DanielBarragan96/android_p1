@@ -84,7 +84,10 @@ class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
                   style: Theme.of(context).textTheme.headline6,
                 ),
               ),
-              Text("${selectedDessert.productDescription}"),
+              Text(
+                "${selectedDessert.productDescription}",
+                style: Theme.of(context).textTheme.bodyText2,
+              ),
               SizedBox(
                 height: 48,
               ),
