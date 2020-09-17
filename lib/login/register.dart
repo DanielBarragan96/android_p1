@@ -56,33 +56,39 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 10.0),
-                  child: TextField(
-                    obscureText: false,
-                    cursorColor: kWhite,
-                    style: TextStyle(color: kWhite),
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(0),
+                  child: Container(
+                    color: kWhite,
+                    child: TextField(
+                      obscureText: false,
+                      cursorColor: kWhite,
+                      style: TextStyle(color: kWhite),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(0),
+                        ),
+                        labelText: 'Nombre completo',
+                        focusColor: kWhite,
+                        labelStyle: TextStyle(color: Colors.black),
+                        fillColor: kWhite,
                       ),
-                      labelText: 'Nombre completo',
-                      focusColor: kWhite,
-                      labelStyle: TextStyle(color: kWhite),
-                      fillColor: kWhite,
                     ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 20.0),
-                  child: TextField(
-                    obscureText: false,
-                    cursorColor: kWhite,
-                    style: TextStyle(color: kWhite),
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Email',
-                      focusColor: kWhite,
-                      labelStyle: TextStyle(color: kWhite),
-                      fillColor: kWhite,
+                  child: Container(
+                    color: kWhite,
+                    child: TextField(
+                      obscureText: false,
+                      cursorColor: kWhite,
+                      style: TextStyle(color: kWhite),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Email',
+                        focusColor: kWhite,
+                        labelStyle: TextStyle(color: Colors.black),
+                        fillColor: kWhite,
+                      ),
                     ),
                   ),
                 ),

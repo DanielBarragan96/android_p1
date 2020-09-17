@@ -55,33 +55,39 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 10.0),
-                  child: TextField(
-                    obscureText: false,
-                    cursorColor: kWhite,
-                    style: TextStyle(color: kWhite),
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(0),
+                  child: Container(
+                    color: kWhite,
+                    child: TextField(
+                      obscureText: false,
+                      cursorColor: kWhite,
+                      style: TextStyle(color: kWhite),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(0),
+                        ),
+                        labelText: 'User',
+                        focusColor: kWhite,
+                        labelStyle: TextStyle(color: Colors.black),
+                        fillColor: kWhite,
                       ),
-                      labelText: 'User',
-                      focusColor: kWhite,
-                      labelStyle: TextStyle(color: kWhite),
-                      fillColor: kWhite,
                     ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 20.0),
-                  child: TextField(
-                    obscureText: true,
-                    cursorColor: kWhite,
-                    style: TextStyle(color: kWhite),
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Password',
-                      focusColor: kWhite,
-                      labelStyle: TextStyle(color: kWhite),
-                      fillColor: kWhite,
+                  child: Container(
+                    color: kWhite,
+                    child: TextField(
+                      obscureText: true,
+                      cursorColor: kWhite,
+                      style: TextStyle(color: kWhite),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Password',
+                        focusColor: kWhite,
+                        labelStyle: TextStyle(color: Colors.black),
+                        fillColor: kWhite,
+                      ),
                     ),
                   ),
                 ),
