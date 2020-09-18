@@ -21,11 +21,6 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   var _scaffoldkey = GlobalKey<ScaffoldState>();
-  Map<String, dynamic> productsList = {
-    "bebidas": List<ProductHotDrinks>(),
-    "granos": List<ProductGrains>(),
-    "postres": List<ProductDessert>()
-  };
   List<ProductItemCart> cartList = new List<ProductItemCart>();
 
   @override
@@ -163,7 +158,8 @@ class _HomeState extends State<Home> {
           productLiked: item.liked,
         ),
       );
+      return true;
     }
-    return true;
+    return false;
   }
 }
